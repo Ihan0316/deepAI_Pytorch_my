@@ -22,7 +22,7 @@ A는 중요한 시험을 위해 시험공부를 하고 있다.
 
 문제집(데이터)->모델(A)
 1->정답 작성(예측값)
-2->채점(손실 함수)
+2->채점(손실 함수) 작을 수록 좋음
 3->정답 작성(실제값)
 4->지식 수정(모델 최적화)
 ->1,2,3,반복 과정
@@ -41,7 +41,7 @@ A는 중요한 시험을 위해 시험공부를 하고 있다.
 각각 500,00장씩 가지고 있 다고 가정.
 우리가 이 데이터를 가지고 지도 학습을 하기 위해서는
 어떤 사진이 어떤 동물인지 표시를 하는 라벨링 작업labelmg
-또는 amotaion을 하거나 폴더 정리를 거쳐야만 한다.
+또는 annotation 을 하거나 폴더 정리를 거쳐야만 한다.
 이때 많은 시간과 비용이 소모될 수 있다.
 또한 라벨링을 잘못할 가능성이 있기 때문에 데이터 관리를 잘해야 한다.
 따라서 지도 학습을 위해 기본적으로 정확히 정답이 표기된 데이터를 가지고 있어야 한다.
@@ -60,7 +60,7 @@ A는 중요한 시험을 위해 시험공부를 하고 있다.
 
 여기에 사용되는 개념이 손실 함수다.
 
-손실 함수Los Tuncton는
+손실 함수 Loss Function 은
 실제값과 예측값이 얼마나 차이가 나는지를 측정하는 척도로써
 문제에 따라 적절한 손실 함수를 정해주는 것이 중요하다.
 
@@ -69,10 +69,10 @@ A는 중요한 시험을 위해 시험공부를 하고 있다.
 
 반대로 함숫값이 크면 학습이 효과적이지 못하다는 의미다.
 
-따라서 현재 예측을 통해 얻은 손실 숫값 보다
+따라서 현재 예측을 통해 얻은 손실값 보다
 다음 학습 시 더 작은 손실 함숫값을 얻기 위해
 이 전 가중치와 편향을
-좀 더 적절한 가중치와 편향으로 최적화 opimitaton하게 된다.
+좀 더 적절한 가중치와 편향으로 최적화 optimization 하게 된다.
 
 가중치와 편향의 업 데이트는 손실 함수의 최적화 문제로 귀결된다.
 
@@ -115,7 +115,7 @@ for epoch in range(num_epochs): # 전체 데이터에 대한 반복 학습
 		loss= criterion(outputs, labels)# 손실 함수 계산(3)
 
 		# 손실 함수를 기준으로 가중치와 편향을 최적화한다(최적화 기법).
-		1oss.backward() # 손실 함수 기준으로 역전파 설정 (4)
+		loss.backward() # 손실 함수 기준으로 역전파 설정 (4)
 		optimizer.step() # 모델 가중치 업데이트 (5)
 		...
 
@@ -133,8 +133,8 @@ for epoch in range(num_epochs): # 전체 데이터에 대한 반복 학습
 
 지도 학습의 종류
 지도 학습 문제 중
-회귀 문제 Regresion와
-분류 문제assifcation를 가장 쉽게 접할 수 있다.
+회귀 문제 Regression 와
+분류 문제 Classification 를 가장 쉽게 접할 수 있다.
 
 회귀 문제는 우리가 원하는 결괏값이 연속적인 변수인 것을 예측하는 문제다.
 
@@ -202,7 +202,7 @@ for epoch in range(num_epochs): # 전체 데이터에 대한 반복 학습
 평가 데이터 외 새로운 데이터에 대해서
 예측 을 잘못할 수 있기 때문에
 
-학습, 검증 Valdation, 평가용으로 데이터를 3 종류로 나누기도 한다.
+학습, 검증 Validation, 평가용으로 데이터를 3 종류로 나누기도 한다.
 데이터 분할 비율은 정해진 것이 없지만
 
 일반적으로 학습 : 평가 = 7: 3 (5 : 5, 6 : 4) 혹은
@@ -210,9 +210,9 @@ for epoch in range(num_epochs): # 전체 데이터에 대한 반복 학습
 
 데이터 셋이 큰 경우에는 학습 데이터 비율을 8, 9까지 놓기도 한다.
 
-데이터를 분할하는 방법은 무작위 추출 Random ampig,
-총화 추출 Randon Stratfed samping,
-교차 검증 Crossvalidation 등 다양한 방법들이 있다.
+데이터를 분할하는 방법은 무작위 추출 Random amping,
+총화 추출 Random Strafed samping,
+교차 검증 Cross validation 등 다양한 방법들이 있다.
 
 기본적으로 무작위 방식으로 데이터를 나누며
 sklearn 라이브러리를 통해 쉽게 적용할 수 있다.
@@ -224,7 +224,7 @@ sklearn 라이브러리를 통해 쉽게 적용할 수 있다.
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-X, y = np.arange(1000).reshape((100, 10)), np.arange(100)
+X, y = np.arrange(1000).reshape((100, 10)), np.arange(100)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape)
