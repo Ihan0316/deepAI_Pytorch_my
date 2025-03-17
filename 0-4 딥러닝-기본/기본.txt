@@ -8,14 +8,14 @@
 1
 여러 가지 텐서
 
-텐서Tenso는 파이토치의 기본 단위이며,
+텐서 Tensor는 파이토치의 기본 단위이며,
 GPU 연산을 가능하게 한다.
 또한 Numpy의 배열과 유사하 여 손쉽게 다룰 수 있다.
 
 4.1 Tensor.ipynb
 # 라이브러리 불러오기
-import torch # Pytorch를 사용하기 위한 기본 라이브러리다.
-import numpy as np # Numpy를 사용하기 위한 기본 라이브러리다. 여기서 "as np"는 numpy를 np로 짧게 표기하겠다는 뜻이다.
+import torch # Pytorch 를 사용하기 위한 기본 라이브러리다.
+import numpy as np # Numpy 를 사용하기 위한 기본 라이브러리다. 여기서 "as np"는 numpy 를 np로 짧게 표기하겠다는 뜻이다.
 
 # 빈 텐서 생성
 x = torch.empty(5,4) # 5x4 행렬 생성
