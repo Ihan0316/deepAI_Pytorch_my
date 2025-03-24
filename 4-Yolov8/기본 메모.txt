@@ -15,7 +15,7 @@
 📌 2. YOLOv8의 기본 개념 및 정의
 ▶️ YOLO란?
 이미지에서 여러 객체를 한 번의 신경망 실행(One Pass) 으로 탐지하는 모델
-Bounding Box(경계 상자) 및 Class(클래스 라벨) 예측f
+Bounding Box(경계 상자) 및 Class(클래스 라벨) 예측
 빠르고 효율적인 End-to-End 방식
 
 ▶️ YOLOv8의 주요 특징
